@@ -1,0 +1,25 @@
+CREATE TABLE FARMACEUTICO 
+( 
+    idFARMACEUTICO INT PRIMARY KEY,  
+    CNPJ_farmacia VARCHAR(20) UNIQUE,  
+    nome_farmacia VARCHAR(100),  
+    end_farmacia VARCHAR(200),  
+    tel_farmacia VARCHAR(20)  
+); 
+
+CREATE TABLE PRODUTO 
+( 
+    cod_produto INT PRIMARY KEY,  
+    qtd_produto INT,  
+    valor_produto DECIMAL(10,2),  
+    idFARMACEUTICO INT,  
+    FOREIGN KEY (idFARMACEUTICO) REFERENCES FARMACEUTICO(idFARMACEUTICO)  
+); 
+
+CREATE TABLE FARMACEUTICO1 
+( 
+    RG_Farmaceutico VARCHAR(20) PRIMARY KEY,  
+    nome_Farmaceu VARCHAR(100),  
+    idFARMACEUTICO INT,  
+    FOREIGN KEY (idFARMACEUTICO) REFERENCES FARMACEUTICO(idFARMACEUTICO)  
+); 
